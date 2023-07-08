@@ -41,54 +41,50 @@
       <!-- welcome guest start -->
       <?php include("../navbar/welcome.php") ?>
       <!-- welcome guest end -->
-
-      <!-- Title Menu start -->
-      <div class="bg-light p-3">
-        <h3 class="text-center">Menu</h3>
-        <p class="text-center">
-          Lorem ipsum dolor sit, amet consectetur adipisicing.
-        </p>
-      </div>
-      <!-- Title Menu end -->
-
+      
       <!-- content start -->
       <div class="row m-4">
-          <!-- sidenav -->
-          <div class="col-md-2 bg-secondary p-0">
-            <ul class="navbar-nav me-auto text-center">
-              <li class="nav-item bg-info">
-                <a href="#" class="nav-link text-light"><h4> My Profile</h4></a>
+        <!-- sidenav -->
+        <div class="col-md-2 bg-secondary p-0">
+          <!-- navbar profile start -->
+          <ul class="navbar-nav me-auto text-center">
+            <li class="nav-item bg-info">
+              <a href="#" class="nav-link text-light"><h4> My Profile</h4></a>
+            </li>
+            <?php
+            //   $username = $_SESSION['username']; 
+            ?>
+              <li class="nav-item">
+                <a href="profile.php" class="nav-link text-light">Pending Order</a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link text-light">Pending Order</a>
+                <a href="profile.php?edit_account" class="nav-link text-light">Edit Account</a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link text-light">Edit Account</a>
+                <a href="profile.php?my_order" class="nav-link text-light">My Orders</a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link text-light">My Orders</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link text-light">Delete Account</a>
+                <a href="profile.php?delete_account" class="nav-link text-light">Delete Account</a>
               </li>
               <li class="nav-item">
                 <a href="logout.php" class="nav-link text-light">Logout</a>
               </li>
     
+            <!-- navbar profile end -->
             </ul>
           </div>
-        <div class="col-md-10">
-          <!-- products -->
-          <div class="row">
-            <!-- fetching products start-->
-            <!-- <?php
-            // calling function
-              getproducts();
-              getUnikCategories();
-              // $ip = getIPAddress();
-              // echo 'User Real IP Address - '.$ip;
-            ?> -->
-            <!-- fetching products end-->
+          <div class="col-md-10 text-center">
+            <!-- products -->
+            <div class="row">
+              <?php
+                getUserOrderDetail();
+                if(isset($_GET['edit_account'])){
+                  include('edit_account.php');
+                }
+              ?>
+              <h3 class="text-center">
+          Lorem ipsum dolor sit, amet consectetur adipisicing.
+</h3>
           </div>
         </div>
       </div>

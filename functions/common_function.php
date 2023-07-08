@@ -215,4 +215,36 @@ function totalCartPrice(){
     echo $total_price;
 }
     
+// get user order detail
+function getUserOrderDetail(){
+  global $conn;
+  $username = $_SESSION['username'];
+
+  $get_details = "Select * from `daftar_user` where username = $username";
+  $result_query = mysqli_query($conn, $get_details);
+
+  while($row_query = mysqli_fetch_array($result_query)){
+    $user_id = $row_query['id_user'];
+    if(!isset($_GET ['edit_account'])){
+      if(!isset($_GET ['my_order'])){
+        if(!isset($_GET ['delete_account'])){
+          $get_oders = "Select * from `order_user` where id_user = $user_id and order_status = 'pending'";
+          $result_orders_query = mysqli_query($conn, $get_oders);
+          $row_count = mysqli_num_rows($result_orders_query);
+          if($row_count > 0){
+            echo "
+            <h3 class='text-center'>You have <span class='text-danger'>$row_count</span>orders pending</h3>
+            <p class='text-center'><a href='profile.php?my_orders'>Order Details</a></p>
+            ";
+          }else{
+            echo "
+            <h3 class='text-center'>You don't have any orders</h3>
+            <p class='text-center'><a href='../index.php'>Shop now</a></p>
+            ";
+          }
+        }
+      }
+    }
+  }
+}
 ?>
