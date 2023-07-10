@@ -120,7 +120,7 @@
           include('insert_categories.php');
         }if(isset($_GET['view_products'])){
           include('view_product.php');
-        }if(isset($_GET['edit_products'])){
+        }if(isset($_GET['edit_product'])){
           include('edit_product.php');
         }
       ?>
@@ -130,7 +130,7 @@
     <!-- menu-menu navbar end -->
 
     <!-- footer start -->
-    <!-- <?php include("../includes/footer.php") ?> -->
+    <?php include("../includes/footer.php") ?>
     <!-- footer end -->
 
     <!-- bootstrap js link -->
