@@ -80,6 +80,8 @@
                 getUserOrderDetail();
                 if(isset($_GET['edit_account'])){
                   include('edit_account.php');
+                }if(isset($_GET['my_order'])){
+                  include('user_order.php');
                 }
               ?>
               <h3 class="text-center">
