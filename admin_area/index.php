@@ -1,3 +1,7 @@
+<?php
+  include('../includes/connect.php');
+  include('../functions/common_function.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,6 +25,14 @@
     />
     <!-- css file -->
     <link rel="stylesheet" href="../style.css" />
+
+    <!-- css -->
+    <style>
+      .product_img {
+        width: 90px;
+        object-fit: contain;
+      }
+    </style>
   </head>
   <body>
     <!-- navbar start -->
@@ -65,11 +77,11 @@
               >Home</a
             ></button
           ><button>
-            <a href="insert_product.php" class="nav-link text-light bg-info p-1 m-1"
+            <a href="index.php?view_products" class="nav-link text-light bg-info p-1 m-1"
               >Instert Products</a
             ></button
           ><button>
-            <a href="" class="nav-link text-light bg-info p-1 m-1"
+            <a href="insert_product.php?" class="nav-link text-light bg-info p-1 m-1"
               >View Products</a
             ></button
           ><button>
@@ -106,6 +118,10 @@
       <?php 
         if(isset($_GET['insert_category'])){
           include('insert_categories.php');
+        }if(isset($_GET['view_products'])){
+          include('view_product.php');
+        }if(isset($_GET['edit_products'])){
+          include('edit_product.php');
         }
       ?>
     </div>
@@ -114,9 +130,7 @@
     <!-- menu-menu navbar end -->
 
     <!-- footer start -->
-    <!-- <div class="bg-primary p-1 text-center">
-        <p>&copy Copy Right 2023 - Design By Sofiyah</p>
-    </div> -->
+    <!-- <?php include("../includes/footer.php") ?> -->
     <!-- footer end -->
 
     <!-- bootstrap js link -->

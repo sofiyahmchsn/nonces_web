@@ -82,7 +82,10 @@
                   include('edit_account.php');
                 }if(isset($_GET['my_order'])){
                   include('user_order.php');
+                }if(isset($_GET['delete_account'])){
+                  include('delete_account.php');
                 }
+                
               ?>
               <h3 class="text-center">
           Lorem ipsum dolor sit, amet consectetur adipisicing.

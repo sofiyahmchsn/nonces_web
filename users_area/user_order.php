@@ -48,6 +48,7 @@
           <?php
           $get_order_detail = "Select * from `order_user` where id_user = $id_user";
           $result_order = mysqli_query($conn, $get_order_detail);
+          $number = 1;
 
           while($row_order = mysqli_fetch_assoc($result_order)){
             $order_id = $row_order['id_order'];
@@ -61,7 +62,6 @@
             }else{
               $order_status = 'Complete';
             }
-            $number = 1;
 
             echo "
               <tr>
@@ -70,9 +70,15 @@
                 <td>$total_product</td>
                 <td>$invoice_number</td>
                 <td>$order_date</td>
-                <td>$order_status</td>
-                <td><a href='confirm_payment.php'></a></td>
+                <td>$order_status</td>";
+          ?>
+              <?php
+              if($order_status == 'Complete'){
+                echo "<td>Paid</td>";
+              }else {
+                echo "<td><a href='confirm_payment?order_id=$order_id.php'></a></td>
               </tr>";
+              }
           }
           $number++;
           ?>
